@@ -31,6 +31,7 @@ func TestIteration(t *testing.T) {
 		})
 	}
 
+	// Example non-tabledriven subtest
 	t.Run("Repeat_ReturnsFiveIterations", func(t *testing.T) {
 		actual := Repeat("a")
 		expected := "aaaaa"
