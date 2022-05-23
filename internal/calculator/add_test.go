@@ -1,9 +1,9 @@
-package add_test
+package calculator_test
 
 import (
 	"testing"
 
-	. "skeleton-go-test/internal/add"
+	. "skeleton-go-test/internal/calculator"
 )
 
 func TestAddReturnsSumOfTwoNumbers(t *testing.T) {
