@@ -7,8 +7,7 @@ import (
 )
 
 func TestIteration(t *testing.T) {
-
-	tests := []struct {
+	testCases := []struct {
 		name    string
 		subject func(string) string
 	}{
@@ -22,9 +21,9 @@ func TestIteration(t *testing.T) {
 		}
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			actual := tt.subject("a")
+	for _, testCase := range testCases {
+		t.Run(testCase.name, func(t *testing.T) {
+			actual := testCase.subject("a")
 			expected := "aaaaa"
 
 			assertEquals(t, actual, expected)
