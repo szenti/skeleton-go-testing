@@ -1,7 +1,6 @@
 package shapes_test
 
 import (
-	"fmt"
 	. "skeleton-go-test/internal/shapes"
 	"testing"
 
@@ -12,26 +11,6 @@ import (
 type SquareSuite struct {
 	suite.Suite
 	subject *Square
-}
-
-func (s SquareSuite) TestAreaTableDriven() {
-	testCases := []struct {
-		name       string
-		sideLength float64
-		expected   float64
-	}{
-		{"returns four for side length of two", 2, 4},
-		{"returns nine for side length of three", 3, 9},
-	}
-
-	for _, testCase := range testCases {
-		testName := fmt.Sprintf("Area %s", testCase.name)
-		s.T().Run(testName, func(t *testing.T) {
-			subject := NewSquare(testCase.sideLength)
-
-			assert.Equal(t, testCase.expected, subject.Area())
-		})
-	}
 }
 
 func (s *SquareSuite) SetupTest() {
@@ -51,6 +30,14 @@ func (s SquareSuite) TestAreaReturnsFourForSideLengthOfTwo() {
 	actual := s.subject.Area()
 
 	assert.Equal(s.T(), 4.0, actual)
+}
+
+func (s SquareSuite) TestAreaReturnsNineForSideLengthOfThree() {
+	subject := NewSquare(3.0)
+
+	actual := subject.Area()
+
+	assert.Equal(s.T(), 9.0, actual)
 }
 
 func TestSquareSuite(t *testing.T) {
